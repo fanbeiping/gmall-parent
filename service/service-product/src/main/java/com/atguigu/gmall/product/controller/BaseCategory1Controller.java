@@ -124,6 +124,7 @@ public class BaseCategory1Controller {
         List<BaseCategory1> listPage = baseCategory1Service.conditionSearch(baseCategory1,page,size);
         return Result.ok(listPage);
 
+
     }
 
 
