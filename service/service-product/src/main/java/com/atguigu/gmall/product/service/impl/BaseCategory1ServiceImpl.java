@@ -36,9 +36,9 @@ public class BaseCategory1ServiceImpl extends ServiceImpl<BaseCategory1Mapper, B
     @Override
     public List<BaseCategory1> search(BaseCategory1 baseCategory1) {
         //判断查询参数是否为空
-        if (baseCategory1==null){
+        if (baseCategory1 == null){
             //为空就查询全部数据
-          return baseCategory1Mapper.selectList(null);
+            return baseCategory1Mapper.selectList(null);
         }
         //查询
         LambdaQueryWrapper wrapper = getCondition1(baseCategory1);

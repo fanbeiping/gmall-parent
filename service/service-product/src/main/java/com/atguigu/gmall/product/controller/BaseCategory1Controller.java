@@ -13,7 +13,7 @@ import java.util.List;
  * @author FAN
  */
 @RestController
-@RequestMapping(value = "/category1")
+@RequestMapping("/category1")
 public class BaseCategory1Controller {
 
     /**
@@ -29,7 +29,7 @@ public class BaseCategory1Controller {
      * @return
      */
     @GetMapping("/findById/{id}")
-    public Result<BaseCategory1> findById(@PathVariable(value = "id") Integer id){
+    public Result<BaseCategory1> findById(@PathVariable(value = "id") Long id){
         BaseCategory1 category1 = baseCategory1Service.getById(id);
         return Result.ok(category1);
     }
@@ -101,7 +101,10 @@ public class BaseCategory1Controller {
      * @return
      */
     @GetMapping("/getPage/{page}/{size}")
-    public Result<List<BaseCategory1>> getPage(@PathVariable("page") Integer page,@PathVariable("size") Integer size){
+    public Result<List<BaseCategory1>> getPage(
+            @PathVariable("page") Integer page,
+            @PathVariable("size") Integer size){
+
         //调用service层方法并返回结果
         List<BaseCategory1> pagingQuery  = baseCategory1Service.pageSearch(page, size);
         return Result.ok(pagingQuery );
@@ -120,6 +123,7 @@ public class BaseCategory1Controller {
                     @RequestBody BaseCategory1 baseCategory1,
                     @PathVariable("page" )Integer page,
                     @PathVariable("size") Integer size){
+
        //调用service层方法  返回分页列表
         List<BaseCategory1> listPage = baseCategory1Service.conditionSearch(baseCategory1,page,size);
         return Result.ok(listPage);
