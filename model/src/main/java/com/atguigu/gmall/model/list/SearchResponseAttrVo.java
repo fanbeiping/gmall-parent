@@ -11,6 +11,7 @@ import java.util.List;
 public class SearchResponseAttrVo implements Serializable {
 
     // 平台属性Id
+
     private Long attrId;//1
     //当前属性值的集合
     private List<String> attrValueList = new ArrayList<>();
